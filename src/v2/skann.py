@@ -57,9 +57,9 @@ def buildTrainingSet(gydataset):
 
 
 
-def begin1():
+def t1(datapath,):
 
-    cbf = readFromCsv("cbf2");
+    cbf = readFromCsv("../datav3/","cbf2");
     numdataset = np.array(cbf,dtype=np.float64);
     #训练数据，验证数据，今天的数据
     tgdataset,vadataset,tydata = dataSplit(numdataset);
@@ -79,7 +79,7 @@ def begin1():
         trainer.trainEpochs(epochs=100);
         rate = va.calRightRate(gyvadata,net);
         if rate > 0.6:
-            NetworkWriter.writeToFile(net, '../netv3/zxtx_8l_100t_6_'+str(rate)+".xml")
+            NetworkWriter.writeToFile(net, '../netv3/zxtx_8l_100t_rate_'+str(rate)+".xml")
             print("current best rate: " + str(rate));
         print(str(i)+" times rate = "+ str(rate));
 

@@ -7,12 +7,12 @@ Created on 2017年10月15日
 import numpy as np;
 
 #读入  ../datav3/
-def readFromCsv(path,fname):
-    myfile = open(path + fname+".csv");
+def readFromCsv(path):
+    myfile = open(path + ".csv");
     return np.loadtxt(myfile,str,delimiter="," ,skiprows=0);
 
-def write2CsvLine(path,fname,cont):
-    myfile = open(path+fname+".csv",'w');
+def write2CsvLine(path,cont):
+    myfile = open(path + ".csv",'w');
     for line in cont:
         stmp="";
         for ele in line:
@@ -25,8 +25,8 @@ def write2CsvLine(path,fname,cont):
 
 #写入文件，返回内容
 def combineFile(path,f1,f2):
-    f1 = readFromCsv(path,f1);
-    f2 = readFromCsv(path,f2);
+    f1 = readFromCsv(path+f1);
+    f2 = readFromCsv(path+f2);
     arr = np.hstack((f1,f2));
     #时间倒序
     arr = arr[::-1]
@@ -40,7 +40,7 @@ def combineFile(path,f1,f2):
             if arr[i][j] == "None":
                 delrowls.append(i);
                 break;
-    write2CsvLine(path,"cbf1",arr);
+    write2CsvLine(path+"cbf1",arr);
     #删除None的行数和最后一行标签行
     arr = np.delete(arr, delrowls, 0);
     arr = np.delete(arr,len(arr)-1,0);
@@ -118,4 +118,4 @@ cbf = combineFile("../datav3/","000001","000063");
 rdd = rangeDDate(cbf,30);
 labs = calStatusLab(rdd);
 cbf2 = np.hstack((rdd,labs));
-write2CsvLine("../datav3/","cbf2",cbf2);
+write2CsvLine("../datav3/cbf2",cbf2);
