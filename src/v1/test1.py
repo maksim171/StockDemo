@@ -7,7 +7,7 @@ from scipy.io.matlab.miobase import arr_dtype_number
 from sklearn import preprocessing;
 
 import numpy as np;
-from v1.util import sci2Float
+# from v1.util import sci2Float
 
 
 li = [1,2,3,4];
@@ -27,6 +27,7 @@ arr[3][0] = 4;
 
 # print(sci2Float(strr));
 
+str = "1";
+strr = "1";
 
-
-print(1.0 == 1);
+print(str==strr);
