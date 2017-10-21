@@ -22,4 +22,5 @@ def calRightRate(dataset,net):
             li.append(line[i]);
         if dec2int(net.activate(li)) == line[-1]:
             count += 1;
+#         print(line," $ ",dec2int(net.activate(li)));
     return float(count)/len(dataset);
