@@ -4,7 +4,9 @@ Created on 2017年10月15日
 @author: maksim-ssd
 作用作为数据从文件读入和读出
 '''
+import os
 import numpy as np;
+
 
 #读入  ../datav3/
 def readFromCsv(path):
@@ -40,7 +42,8 @@ def combineFile(path,f1,f2):
             if arr[i][j] == "None":
                 delrowls.append(i);
                 break;
-    write2CsvLine(path+"cbf1",arr);
+    
+#     write2CsvLine(path+str(orimergename),arr);#此处是原始的合并文件
     #删除None的行数和最后一行标签行
     arr = np.delete(arr, delrowls, 0);
     arr = np.delete(arr,len(arr)-1,0);
@@ -110,12 +113,19 @@ def getSp(cb):
 def rangeDDate(totoaldata,range):
     return totoaldata[:range,:];
 
+#路径，大盘，个股，历史向前天数，保存文件名
+def t1(path,csvdp,csvgg,range,mergename):
+    cbf = combineFile(path,csvdp,csvgg);
+    rdd = rangeDDate(cbf,range);
+    labs = calStatusLab(rdd);
+    cbf2 = np.hstack((rdd,labs));
+    write2CsvLine(path+"combine/"+str(mergename),cbf2);
+    return;
 
-
-
-cbf = combineFile("../datav3/","000001","000063");
-#前90天作为训练样本
-rdd = rangeDDate(cbf,30);
-labs = calStatusLab(rdd);
-cbf2 = np.hstack((rdd,labs));
-write2CsvLine("../datav3/cbf2",cbf2);
+# t1("../datav3/", "000001", "000063", 20, "r20");
+# cbf = combineFile("../datav3/","000001","000063");
+# #前90天作为训练样本
+# rdd = rangeDDate(cbf,30);
+# labs = calStatusLab(rdd);
+# cbf2 = np.hstack((rdd,labs));
+# write2CsvLine("../datav3/cbf2",cbf2);

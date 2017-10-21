@@ -13,9 +13,9 @@ from v2.skann import dataSplit, gyData, calFeature, buildTrainingSet
 from v2.validata import dec2int
 
 
-def t2():
+def t3(cbfpath,netpath):
 
-    cbf = readFromCsv("../datav3/","cbf2");
+    cbf = readFromCsv(cbfpath);
     numdataset = np.array(cbf,dtype=np.float64);
     #训练数据，验证数据，今天的数据
     tgdataset,vadataset,tydata = dataSplit(numdataset);
@@ -28,14 +28,14 @@ def t2():
     
     tset = buildTrainingSet(gyvadata);
     
-    net = NetworkReader.readFrom("../netv3/zxtx_8l_100t_6_0.785714285714.xml");
+    net = NetworkReader.readFrom(netpath+".xml");
     trainer = BackpropTrainer(net, tset)
     trainer.trainEpochs(epochs=100);
-    
     li = [];
     for ele in gytydata[0]:
         li.append(ele);
-    
     print(dec2int(net.activate(li[:-1])))
+    return;
 
-t2();
+#合并文件位置，神经网络位置
+# t3("../datav3/combine/r20", "../datav3/nets/8l_100t_rate_0.666666666667");
