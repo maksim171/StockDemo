@@ -2,11 +2,11 @@
 '''
 Created on 2017年10月20日
 @author: maksim-ssd
+二次训练，就是将验证数据放入网络再次训练
 '''
+import numpy as np;
 from pybrain.supervised.trainers.backprop import BackpropTrainer
 from pybrain.tools.xml.networkreader import NetworkReader
-
-import numpy as np;
 from v2.datafileoperate import readFromCsv
 from v2.skann import dataSplit, gyData, calFeature, buildTrainingSet
 from v2.validata import dec2int

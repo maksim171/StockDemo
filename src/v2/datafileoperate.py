@@ -112,6 +112,7 @@ def rangeDDate(totoaldata,range):
 
 
 
+
 cbf = combineFile("../datav3/","000001","000063");
 #前90天作为训练样本
 rdd = rangeDDate(cbf,30);
