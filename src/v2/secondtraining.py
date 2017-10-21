@@ -12,7 +12,7 @@ from v2.datafileoperate import readFromCsv
 from v2.skann import dataSplit, gyData, calFeature, buildTrainingSet
 from v2.validata import dec2int
 
-
+#合并文件位置，神经网络存储位置
 def t3(cbfpath,netpath):
     cbf = readFromCsv(cbfpath);
     numdataset = np.array(cbf,dtype=np.float64);

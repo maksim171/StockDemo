@@ -11,7 +11,7 @@ from v2.secondtraining import t3
 from v2.skann import t2
 
 
-t1("../datav4/", "000001", "002450", 100, "r100");
-drawPic("../datav4/combine/r100");
-# t2("../datav3/","r60");
-# t3("../datav3/combine/r60", "../datav3/nets/8l_100t_rate_0.636363636364");
+t1("../datav5/", "000001", "601899", 1000, "r1000");
+drawPic("../datav5/combine/r1000");
+# t2("../datav4/","r100");
+# t3("../datav4/combine/r100", "../datav4/nets/r100_8l_100t_0.631578947368");
