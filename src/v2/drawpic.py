@@ -41,7 +41,6 @@ def drawPic(fpath):
     plt.ylim(ymax=max(ssp)+3,ymin=min(ssp)-3)
     plt.xlabel("x")
     plt.ylabel("y")
-    # plt.plot(x,ssp,'r.')#此处的r.的意思是red红色的.来绘图  r+  就是用红色的+来绘图
     
     plt.plot(x0,y0,'g.')#此处的r.的意思是red红色的.来绘图  r+  就是用红色的+来绘图
     plt.plot(x1,y1,'b.')#此处的r.的意思是red红色的.来绘图  r+  就是用红色的+来绘图
