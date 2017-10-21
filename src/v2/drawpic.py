@@ -7,9 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np;
 from v2.datafileoperate import getSp, calStatusLab, readFromCsv
 
-
 def drawPic(ssp,status):
-    
     a = np.arange(len(ssp)).reshape(len(ssp), 1)
     #绘图源数据
     res = np.hstack((a,ssp,status));
@@ -48,5 +46,5 @@ def drawPic(ssp,status):
     plt.show()
     return;
 
-cb = readFromCsv("cbf2");
+cb = readFromCsv("../datav3/","cbf2");
 drawPic(getSp(cb),calStatusLab(cb));
