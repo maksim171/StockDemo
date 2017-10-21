@@ -67,7 +67,7 @@ def t2(cepath,fname):
     
     #验证和今天的数据
     gyvadata = calFeature(vadataset,dmean,dstd);
-    gytydata = calFeature(tydata,dmean,dstd);
+#     gytydata = calFeature(tydata,dmean,dstd);
     
     #神经网络
     trainingset = buildTrainingSet(gydata);

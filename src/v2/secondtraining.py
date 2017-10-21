@@ -14,13 +14,17 @@ from v2.validata import dec2int
 
 
 def t3(cbfpath,netpath):
-
     cbf = readFromCsv(cbfpath);
     numdataset = np.array(cbf,dtype=np.float64);
     #训练数据，验证数据，今天的数据
     tgdataset,vadataset,tydata = dataSplit(numdataset);
-    #归一的参数
-    gydata,dmean,dstd = gyData(tgdataset);
+    #归一所有的文件中的数据
+    '''
+         此处与skann的处理有所不同，在skann中因为要将数据集分为训练数据集和验证数据集，所以在
+    gyData时调用gyData(tgdataset)，而在二次训练时应该用全局的均值和方差来求隶属度，所以调用
+    gyData时调用gyData(numdataset)
+    '''
+    gydata,dmean,dstd = gyData(numdataset);
     
     #验证和今天的数据
     gyvadata = calFeature(vadataset,dmean,dstd);
