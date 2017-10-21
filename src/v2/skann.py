@@ -80,8 +80,7 @@ def begin1():
         rate = va.calRightRate(gyvadata,net);
         if rate > 0.6:
             NetworkWriter.writeToFile(net, '../netv3/zxtx_8l_100t_6_'+str(rate)+".xml")
-            print(va.calRightRate(gyvadata,net));
-            print(va.calRightRate(gytydata,net));
-        print(str(i)+" times "+ str(rate));
+            print("current best rate: " + str(rate));
+        print(str(i)+" times rate = "+ str(rate));
 
 # begin1();

@@ -20,7 +20,6 @@ def calRightRate(dataset,net):
         li = [];
         for i in range(len(line)-1):
             li.append(line[i]);
-#         print("res: ",li,net.activate(li),dec2int(net.activate(li)),line[-1]);
         if dec2int(net.activate(li)) == line[-1]:
             count += 1;
     return float(count)/len(dataset);

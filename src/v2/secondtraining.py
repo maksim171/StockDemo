@@ -3,6 +3,7 @@
 Created on 2017年10月20日
 @author: maksim-ssd
 二次训练，就是将验证数据放入网络再次训练
+最后输出最终的预测结论
 '''
 import numpy as np;
 from pybrain.supervised.trainers.backprop import BackpropTrainer
@@ -12,9 +13,9 @@ from v2.skann import dataSplit, gyData, calFeature, buildTrainingSet
 from v2.validata import dec2int
 
 
-def begin2():
+def t2():
 
-    cbf = readFromCsv("cbf2");
+    cbf = readFromCsv("../datav3/","cbf2");
     numdataset = np.array(cbf,dtype=np.float64);
     #训练数据，验证数据，今天的数据
     tgdataset,vadataset,tydata = dataSplit(numdataset);
@@ -36,4 +37,5 @@ def begin2():
         li.append(ele);
     
     print(dec2int(net.activate(li[:-1])))
-begin2();
+
+t2();
