@@ -111,7 +111,7 @@ def getSp(cb):
 
 #截取原始数据中向前range天的数据，因为有时短期的数据更加合适，长期的数据不具有训练价值
 def rangeDDate(totoaldata,range):
-    return totoaldata[:range,:];
+    return totoaldata[-range:,:];
 
 #路径，大盘，个股，历史向前天数，保存文件名
 def t1(path,csvdp,csvgg,range,mergename):
