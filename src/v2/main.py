@@ -41,11 +41,11 @@ def eeveryStockPrt(stock,range,rate):
 
 
 slist = ["002450","601899","000063","601218"];
-for ele in slist:
-    eeveryStockTg(ele,"20160120","20171020",70);
+# for ele in slist:
+#     eeveryStockTg(ele,"20160120","20171020",70);
 
 # for ele in slist:
-#     eeveryStockPrt(ele,70,0.62);
+#     eeveryStockPrt(ele,70,0.69);
 
 
 
