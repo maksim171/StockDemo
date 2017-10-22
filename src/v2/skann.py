@@ -80,6 +80,7 @@ def t2(cepath,fname):
         if rate > 0.6:
             NetworkWriter.writeToFile(net, cepath + 'nets/' + fname +'_8l_100t_'+str(round(rate,2))+".xml")
             print("current best rate: " + str(rate));
+            break;
         else:
             print(str(i)+" times rate = "+ str(rate));
 

@@ -5,7 +5,7 @@ Created on 2017年10月21日
 '''
 import requests as rs;
 
-#下载sid股票id，起止时间，url,位置
+#下载sid股票id，起止时间，url,位置  路径拼接可能有些问题，6打头的应该对
 def download(sid,sdateb,sdatee,path):
     if sid == "000001":
         strs = "http://quotes.money.163.com/service/chddata.html?code=0000001&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;VOTURNOVER;VATURNOVER"
@@ -13,12 +13,12 @@ def download(sid,sdateb,sdatee,path):
         if sid[0] == "0":
             strs = "http://quotes.money.163.com/service/chddata.html?code="+"1"+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
         else:    
-            strs = "http://quotes.money.163.com/service/chddata.html?code="+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
-#     print(strs);
+            strs = "http://quotes.money.163.com/service/chddata.html?code="+"0"+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
+    print(strs);
     r = rs.get(strs);
     with open(path + sid+".csv", "wb") as code:
         code.write(r.content)
     return;
 
-# download("0600795","20170120","20171020","../dd/");
+# download("601899","20170120","20171020","../datav5/");
 # download("0000001","20170120","20171020","../dd/");
