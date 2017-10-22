@@ -13,8 +13,8 @@ from v2.skann import dataSplit, gyData, calFeature, buildTrainingSet
 from v2.validata import dec2int
 
 #合并文件位置，神经网络存储位置
-def t3(cbfpath,netpath):
-    cbf = readFromCsv(cbfpath);
+def t3(path,cbfname,netname):
+    cbf = readFromCsv(path + "combine/" + cbfname);
     numdataset = np.array(cbf,dtype=np.float64);
     #训练数据，验证数据，今天的数据
     tgdataset,vadataset,tydata = dataSplit(numdataset);
@@ -32,7 +32,7 @@ def t3(cbfpath,netpath):
     
     tset = buildTrainingSet(gyvadata);
     
-    net = NetworkReader.readFrom(netpath+".xml");
+    net = NetworkReader.readFrom(path + "nets/" +netname +".xml");
     trainer = BackpropTrainer(net, tset)
     trainer.trainEpochs(epochs=100);
     li = [];
