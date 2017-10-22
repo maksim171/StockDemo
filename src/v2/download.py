@@ -7,11 +7,14 @@ import requests as rs;
 
 #下载sid股票id，起止时间，url,位置
 def download(sid,sdateb,sdatee,path):
-    if sid != "000001":
-        strs = "http://quotes.money.163.com/service/chddata.html?code="+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
-    else:
+    if sid == "000001":
         strs = "http://quotes.money.163.com/service/chddata.html?code=0000001&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;VOTURNOVER;VATURNOVER"
-    
+    else:
+        if sid[0] == "0":
+            strs = "http://quotes.money.163.com/service/chddata.html?code="+"1"+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
+        else:    
+            strs = "http://quotes.money.163.com/service/chddata.html?code="+sid+"&start="+sdateb+"&end="+sdatee+"&fields=TCLOSE;HIGH;LOW;TOPEN;LCLOSE;CHG;PCHG;TURNOVER;VOTURNOVER;VATURNOVER;TCAP;MCAP";
+#     print(strs);
     r = rs.get(strs);
     with open(path + sid+".csv", "wb") as code:
         code.write(r.content)
