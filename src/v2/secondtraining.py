@@ -38,8 +38,9 @@ def t3(path,cbfname,netname):
     li = [];
     for ele in gytydata[0]:
         li.append(ele);
-    print(dec2int(net.activate(li[:-1])))
-    return;
+    res = dec2int(net.activate(li[:-1]));
+    print(res)
+    return res;
 
 #合并文件位置，神经网络位置
 # t3("../datav3/combine/r20", "../datav3/nets/8l_100t_rate_0.666666666667");

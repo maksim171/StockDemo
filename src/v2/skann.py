@@ -10,10 +10,10 @@ from pybrain.supervised.trainers.backprop import BackpropTrainer
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.tools.xml.networkwriter import NetworkWriter
 from sklearn import preprocessing
-import validata as va;
 
 import numpy as np;
 from v2.datafileoperate import readFromCsv
+import validata as va;
 
 
 #把数据集按照 8:2  分为训练和验证以及最后的今天要预测的数据
@@ -78,7 +78,7 @@ def t2(cepath,fname):
         trainer.trainEpochs(epochs=100);
         rate = va.calRightRate(gyvadata,net);
         if rate > 0.6:
-            NetworkWriter.writeToFile(net, cepath + 'nets/' + fname +'_8l_100t_'+str(rate)+".xml")
+            NetworkWriter.writeToFile(net, cepath + 'nets/' + fname +'_8l_100t_'+str(round(rate,2))+".xml")
             print("current best rate: " + str(rate));
         else:
             print(str(i)+" times rate = "+ str(rate));
